@@ -1,0 +1,80 @@
+.wrapper {
+    height: var(--default-layout-header-hight);
+    width: 100%;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+}
+.inner {
+    width: var(--default-layout-width);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.seach {
+    --seach-boder-radius: 92px;
+    --seach-hight: 46px;
+    --seach-top-spacer: 9px;
+    --seach-bottom-width: 52px;
+
+    position: relative;
+    width: 361px;
+    height: var(--seach-hight);
+    padding-left: 16px;
+    display: flex;
+    background: rgba(22, 24, 35, 0.06);
+    border-radius: var(--seach-boder-radius);
+    border: 1.5px solid transparent;
+    input {
+        flex: 1;
+        height: 100%;
+        color: var(--black);
+        font-size: 1.6rem;
+        background-color: transparent;
+        caret-color: var(--primary);
+    }
+    input:not(:placeholder-shown) ~ .seach-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        height: calc(var(--seach-hight) - var(--seach-top-spacer) * 2);
+        width: 1px;
+        right: var(--seach-bottom-width);
+        top: var(--seach-top-spacer);
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--seach-bottom-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.34);
+}
+
+.seach-btn {
+    width: var(--seach-bottom-width);
+    height: 100%;
+    border-top-right-radius: var(--seach-boder-radius);
+    border-bottom-right-radius: var(--seach-boder-radius);
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 1.8rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+        color: rgba(22, 24, 35, 0.34);
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
